@@ -92,8 +92,10 @@ Tiêu chí chấp nhận:
 - [ ] Khi ngân hàng báo tiền vào (webhook), đơn tự chuyển sang *Chờ xác nhận* và trang thanh toán tự hiện "Đã nhận tiền" mà khách không cần tải lại
 - [ ] Webhook không có chữ ký hợp lệ bị từ chối
 - [ ] Cùng một giao dịch gửi webhook nhiều lần chỉ được xử lý **một** lần
-- [ ] Chuyển thiếu tiền: đơn không tự xác nhận, admin được thông báo để xử lý
-- [ ] Quá 24 giờ chưa thanh toán: đơn tự hủy và tồn kho được cộng trả lại
+- [ ] Chuyển **thiếu** tiền: đơn chuyển sang *Cần xử lý*, **không bị tự hủy**, admin được thông báo
+- [ ] Chuyển **dư** tiền: đơn vẫn chuyển sang *Chờ xác nhận*, admin được thông báo để hoàn phần dư
+- [ ] Quá 24 giờ mà **chưa nhận được đồng nào**: đơn tự hủy và tồn kho được cộng trả lại
+- [ ] Tiền về cho một đơn **đã hủy**: không tự mở lại đơn, admin được thông báo để hoàn tiền
 
 ### US-08 · Tra cứu đơn hàng
 **Là** khách, **tôi muốn** xem đơn của mình đang ở bước nào, **để** biết khi nào nhận được hàng.
@@ -149,9 +151,10 @@ Tiêu chí chấp nhận:
 **Là** admin, **tôi muốn** chuyển trạng thái đơn theo đúng quy trình, **để** cả nhóm biết đơn đang ở bước nào.
 
 Tiêu chí chấp nhận:
-- [ ] Chỉ được chuyển theo các mũi tên trong sơ đồ *Trạng thái đơn hàng* bên dưới; chuyển sai trả về lỗi
-- [ ] Hủy đơn thì số lượng trong đơn được cộng trả lại tồn kho
-- [ ] Lưu lại ai đổi, đổi lúc nào
+- [ ] Chỉ được chuyển theo bảng *Trạng thái đơn hàng* bên dưới; chuyển sai trả về lỗi
+- [ ] Tồn kho được cộng lại đúng thời điểm ghi ở cột *Tồn kho* của bảng đó
+- [ ] Hủy đơn đã nhận tiền (từ *Cần xử lý*) phải ghi số tiền đã hoàn và ngày hoàn
+- [ ] Lưu lại ai đổi, đổi lúc nào, lý do (bắt buộc khi hủy)
 
 ### US-13 · Thống kê doanh thu
 **Là** admin, **tôi muốn** xem doanh thu và sản phẩm bán chạy, **để** quyết định nhập thêm hàng gì.
@@ -165,25 +168,48 @@ Tiêu chí chấp nhận:
 
 ## Trạng thái đơn hàng
 
-```
-                 (chuyển khoản)                          (COD)
-               ┌─────────────────┐                         │
-               │ Chờ thanh toán  │──── nhận đủ tiền ───┐   │
-               └────────┬────────┘                     ▼   ▼
-                        │ quá 24h              ┌──────────────────┐
-                        ▼                      │  Chờ xác nhận    │
-                   ┌─────────┐ ◄── hủy ─────── └────────┬─────────┘
-                   │ Đã hủy  │                          │ admin xác nhận
-                   └─────────┘ ◄── hủy ─────── ┌────────▼─────────┐
-                                               │  Đang giao       │
-                                               └────────┬─────────┘
-                                                        │ giao thành công
-                                               ┌────────▼─────────┐
-                                               │  Hoàn thành      │
-                                               └──────────────────┘
+```mermaid
+stateDiagram-v2
+    state "Chờ thanh toán" as PENDING_PAYMENT
+    state "Cần xử lý" as NEEDS_REVIEW
+    state "Chờ xác nhận" as PENDING_CONFIRM
+    state "Đang giao" as SHIPPING
+    state "Đang hoàn hàng" as RETURNING
+    state "Hoàn thành" as COMPLETED
+    state "Đã hủy" as CANCELLED
+
+    [*] --> PENDING_PAYMENT: đặt hàng, chuyển khoản
+    [*] --> PENDING_CONFIRM: đặt hàng, COD
+    PENDING_PAYMENT --> PENDING_CONFIRM: nhận đủ hoặc dư tiền
+    PENDING_PAYMENT --> NEEDS_REVIEW: nhận thiếu tiền
+    PENDING_PAYMENT --> CANCELLED: quá 24h hoặc admin hủy
+    NEEDS_REVIEW --> PENDING_CONFIRM: khách chuyển bù đủ
+    NEEDS_REVIEW --> CANCELLED: admin hủy và hoàn tiền
+    PENDING_CONFIRM --> SHIPPING: admin xác nhận, bàn giao vận chuyển
+    PENDING_CONFIRM --> CANCELLED: admin hủy
+    SHIPPING --> COMPLETED: giao thành công
+    SHIPPING --> RETURNING: giao thất bại hoặc khách bom hàng
+    RETURNING --> CANCELLED: admin xác nhận đã nhận lại hàng
+    COMPLETED --> [*]
+    CANCELLED --> [*]
 ```
 
-Không có mũi tên đi ra từ *Hoàn thành* và *Đã hủy*: đây là hai trạng thái kết thúc.
+| Từ | Sang | Ai / cái gì kích hoạt | Tồn kho |
+|---|---|---|---|
+| *(mới)* | Chờ thanh toán | Khách đặt, chọn chuyển khoản | Trừ ngay |
+| *(mới)* | Chờ xác nhận | Khách đặt, chọn COD | Trừ ngay |
+| Chờ thanh toán | Chờ xác nhận | Webhook: nhận đủ hoặc dư tiền | — |
+| Chờ thanh toán | Cần xử lý | Webhook: nhận thiếu tiền | — |
+| Chờ thanh toán | Đã hủy | Hệ thống (quá 24h, chưa nhận tiền) hoặc admin | Cộng lại ngay |
+| Cần xử lý | Chờ xác nhận | Webhook hoặc admin: khách đã chuyển bù đủ | — |
+| Cần xử lý | Đã hủy | Admin, sau khi hoàn tiền cho khách | Cộng lại ngay |
+| Chờ xác nhận | Đang giao | Admin | — |
+| Chờ xác nhận | Đã hủy | Admin | Cộng lại ngay |
+| Đang giao | Hoàn thành | Admin | — |
+| Đang giao | Đang hoàn hàng | Admin: giao thất bại / khách bom hàng | **Chưa** cộng – hàng còn trên đường về |
+| Đang hoàn hàng | Đã hủy | Admin: đã nhận lại hàng tại kho | Cộng lại lúc này |
+
+*Hoàn thành* và *Đã hủy* là trạng thái kết thúc: không chuyển đi đâu được nữa.
 
 ---
 
