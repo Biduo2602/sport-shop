@@ -194,6 +194,82 @@ Bằng chứng: Chrome *Waiting for server response* 58 ms; curl từ 197 ms đ�
 
 ---
 
+## Giai đoạn 0 · Bài 4 — TypeScript: tính tiền giỏ hàng
+
+Code: [`playground/cart.ts`](../playground/cart.ts) (kiểu dữ liệu + 2 hàm) · [`playground/main.ts`](../playground/main.ts) (18 trường hợp kiểm tra). Chạy: `npx tsx playground/main.ts` → **18 đạt, 0 lỗi**.
+
+### Kiến thức TypeScript đã dùng
+
+| Cú pháp | Dùng để làm gì trong bài |
+|---|---|
+| `type Size = "S" \| "M" \| "L" \| "XL"` | **Union of literal types**: `size` chỉ nhận đúng 4 giá trị, gõ `"XXL"` bị báo lỗi |
+| `salePrice?: number` | **Optional property**: không phải sản phẩm nào cũng có khuyến mãi |
+| `product.salePrice ?? product.price` | **Nullish coalescing**: chỉ lấy `price` khi `salePrice` là `undefined`/`null`. Dùng `\|\|` sẽ sai với quà tặng `salePrice: 0` (0 bị coi là "không có") |
+| `discountPercent: number = 0` | **Default parameter**: không truyền thì mặc định không giảm giá |
+| `items: CartItem[]`, `: number` sau tên hàm | Kiểu mảng, kiểu trả về của hàm |
+| `items.reduce((total, item) => ..., 0)` | Cộng dồn mảng thành một giá trị |
+| `export` / `import { type Product } from "./cart"` | Tách code thành module; `type` báo rằng chỉ import kiểu, không có code chạy |
+
+### Bài học 1 — Kiểm tra dữ liệu: chỉ chấp nhận cái chắc chắn đúng
+
+Bản đầu kiểm tra bằng cách **liệt kê cái sai để chặn**:
+```ts
+if (discountPercent < 0 || discountPercent > 100) throw ...   // NaN lọt qua!
+if (item.quantity <= 0) throw ...                              // NaN, 1.5 lọt qua!
+```
+`NaN < 0` và `NaN > 100` đều là `false` → NaN đi thẳng vào phép tính, tổng tiền thành `NaN` mà không ai báo. `quantity: 1.5` cũng được chấp nhận.
+
+Bản sửa đổi cách nghĩ — **chỉ chấp nhận cái chắc chắn đúng, còn lại đều là lỗi**:
+```ts
+if (!Number.isFinite(discountPercent) || discountPercent < 0 || discountPercent > 100) throw ...
+if (!Number.isInteger(item.quantity) || item.quantity <= 0) throw ...
+```
+- `Number.isFinite` loại NaN và Infinity; `Number.isInteger` loại thêm số lẻ.
+- Hai hàm này **không tự đổi kiểu**: `Number.isFinite("10")` là `false`. Hàm cũ `isFinite("10")` (không có `Number.`) lại đổi chuỗi sang số rồi trả `true`.
+- Cách nghĩ này áp dụng cho mọi dữ liệu từ bên ngoài: form, request API, webhook.
+
+### Bài học 2 — Tính tiền với số thực
+
+`0.1 + 0.2 = 0.30000000000000004` trong JavaScript vì máy tính lưu số thực dạng nhị phân, có sai số.
+- Tính theo thứ tự **nhân trước, chia sau**: `subtotal * (100 - discount) / 100`, ít sai số hơn `subtotal * (1 - discount / 100)`.
+- **Làm tròn** kết quả cuối (`Math.round`) vì VNĐ không có số lẻ.
+- Trong cơ sở dữ liệu luôn lưu tiền VNĐ dạng **số nguyên**, không dùng số thực.
+
+### Bài học 3 — Thí nghiệm: `tsx` khác `tsc` thế nào
+
+Thêm 2 dòng cố ý sai vào cuối `main.ts`:
+```ts
+calcTotal(cart, "10");                                            // chuỗi thay vì số
+const bad: CartItem = { product: ao, size: "XXL", quantity: 1 };  // size không tồn tại
+```
+
+| | `npx tsx playground/main.ts` | `npx tsc --noEmit --strict ...` |
+|---|---|---|
+| Có chạy chương trình không? | **Có** — chạy hết 18 test rồi mới gặp lỗi | **Không** — dừng ngay, chưa chạy dòng nào |
+| Phát hiện `"10"` | Chỉ nhờ đoạn kiểm tra `Number.isFinite` → ném lỗi **lúc đang chạy** | ✅ `Argument of type 'string' is not assignable to parameter of type 'number'` |
+| Phát hiện `"XXL"` | ❌ **Không bao giờ** — chạy như bình thường | ✅ `Type '"XXL"' is not assignable to type 'Size'` |
+
+**Vì sao:** `tsx` chỉ **xóa hết phần kiểu dữ liệu** rồi chạy như JavaScript thường — nhanh, nhưng không kiểm tra gì. `tsc` mới là trình **kiểm tra kiểu**.
+
+**Ngược lại**, `tsc --strict` báo ✅ cho bản code đầu dù NaN và 1.5 vẫn lọt — vì `NaN` và `1.5` đều thuộc kiểu `number`.
+
+**Kết luận: cần cả hai lớp bảo vệ**
+
+| Lớp | Kiểm tra gì | Khi nào | Bắt được |
+|---|---|---|---|
+| TypeScript (`tsc`) | **Kiểu**: có phải số không, có đúng 4 size không | Lúc viết code, trước khi chạy | `"10"`, `"XXL"`, gõ sai tên trường |
+| Kiểm tra trong code | **Giá trị**: số có hợp lý không | Lúc chạy, với dữ liệu thật | NaN, 1.5, âm, ngoài khoảng |
+
+Áp dụng vào sport-shop:
+- Dữ liệu từ trình duyệt gửi lên API là JSON — TypeScript **không** kiểm soát được thứ client gửi → Giai đoạn 2 phải có **DTO validation** cho mọi request.
+- Giai đoạn 7: CI chạy `tsc` trước mỗi lần merge để không có lỗi kiểu nào lọt lên `main`. Khi dev chỉ chạy bằng `tsx` hay Next.js dev server thì lỗi kiểu có thể không hiện ra.
+
+### Câu hỏi còn mở
+- **`id` là số tự tăng hay chuỗi (UUID)?** Bài này chọn chuỗi. Quyết định chính thức ở Giai đoạn 1 khi thiết kế cơ sở dữ liệu → ghi thành `docs/decisions/0002-...`.
+- **Sản phẩm giá âm chặn ở đâu?** Không phải trong `calcTotal` mà ở lúc admin tạo/sửa sản phẩm (US-10) — dữ liệu sai phải bị chặn ngay từ cửa vào.
+
+---
+
 ## Giai đoạn 0 · Tự kiểm tra (ROADMAP)
 
 **1. GET khác POST thế nào? PUT khác PATCH thế nào?**
