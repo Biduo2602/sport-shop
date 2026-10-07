@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="910" viewBox="0 0 860 910">
+<rect width="860" height="910" fill="#fff"/>
+<text x="20" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#222" text-anchor="start" font-weight="bold">01 · Danh sách sản phẩm — mobile 375px</text>
+<text x="20" y="58" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#777" text-anchor="start" font-weight="bold">Trạng thái chính</text>
+<rect x="20" y="70" width="375" height="812" rx="22" fill="#fff" stroke="#333" stroke-width="2.5"/>
+<text x="44" y="90" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start" font-weight="bold">9:41</text>
+<text x="371" y="90" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#777" text-anchor="end">▮▮▮ 🔋</text>
+<line x1="20" y1="154" x2="395" y2="154" stroke="#E0E0E0" stroke-width="1"/>
+<rect x="36" y="112" width="120" height="30" rx="4" fill="#F2F2F2" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="96" y="132" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle" font-weight="bold">SPORT SHOP</text>
+<circle cx="320" cy="125" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="327" y1="132" x2="334" y2="139" stroke="#222" stroke-width="2"/>
+<rect x="353" y="115" width="22" height="20" rx="3" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="358" y1="115" x2="358" y2="110" stroke="#222" stroke-width="2"/>
+<line x1="370" y1="115" x2="370" y2="110" stroke="#222" stroke-width="2"/>
+<line x1="358" y1="110" x2="370" y2="110" stroke="#222" stroke-width="2"/>
+<circle cx="377" cy="114" r="9" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="377" y="118" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+<circle cx="310" cy="100" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="310" y="104.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<defs><clipPath id="chipclip"><rect x="22" y="162" width="371" height="44"/></clipPath></defs><g clip-path="url(#chipclip)">
+<rect x="36" y="168" width="76" height="32" rx="16" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="74.0" y="189" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#fff" text-anchor="middle" font-weight="bold">Tất cả</text>
+<rect x="120" y="168" width="44" height="32" rx="16" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="142.0" y="189" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Áo</text>
+<rect x="172" y="168" width="60" height="32" rx="16" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="202.0" y="189" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Quần</text>
+<rect x="240" y="168" width="60" height="32" rx="16" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="270.0" y="189" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Giày</text>
+<rect x="308" y="168" width="92" height="32" rx="16" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="354.0" y="189" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Phụ kiện</text>
+<rect x="408" y="168" width="84" height="32" rx="16" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="450.0" y="189" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Dụng cụ</text>
+<rect x="350" y="166" width="45" height="36" fill="url(#fade)"/>
+<defs><linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient></defs></g>
+<circle cx="28" cy="160" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="28" y="164.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+<rect x="36" y="214" width="110" height="34" rx="8" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="91.0" y="235.55" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">⚲  Lọc (1)</text>
+<rect x="209" y="214" width="170" height="34" rx="8" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="294.0" y="235.55" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Sắp xếp: Mới nhất ▾</text>
+<circle cx="150" cy="216" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="150" y="220.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+<text x="36" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start">Đang lọc: Chạy bộ · 24 sản phẩm</text>
+<rect x="36" y="286" width="165" height="165" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="36" y1="286" x2="201" y2="451" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="201" y1="286" x2="36" y2="451" stroke="#BDBDBD" stroke-width="1"/>
+<rect x="44" y="294" width="44" height="22" rx="4" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="66" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">-14%</text>
+<text x="36" y="472" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Áo chạy bộ Dri-fit nam</text>
+<text x="36" y="494" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">189.000 ₫</text>
+<text x="124" y="494" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start">219.000 ₫</text>
+<line x1="124" y1="490.16" x2="180.16" y2="490.16" stroke="#777" stroke-width="1"/>
+<rect x="213" y="286" width="165" height="165" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="213" y1="286" x2="378" y2="451" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="378" y1="286" x2="213" y2="451" stroke="#BDBDBD" stroke-width="1"/>
+<text x="213" y="472" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Quần short chạy bộ 2 lớp</text>
+<text x="213" y="494" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">189.000 ₫</text>
+<rect x="36" y="518" width="165" height="165" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="36" y1="518" x2="201" y2="683" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="201" y1="518" x2="36" y2="683" stroke="#BDBDBD" stroke-width="1"/>
+<rect x="36" y="518" width="165" height="165" rx="4" fill="#fff" fill-opacity="0.6"/>
+<rect x="73" y="586" width="90" height="28" rx="14" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="118" y="605" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle" font-weight="bold">Hết hàng</text>
+<text x="36" y="704" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#777" text-anchor="start">Giày chạy bộ đế êm</text>
+<text x="36" y="726" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#777" text-anchor="start" font-weight="bold">690.000 ₫</text>
+<rect x="213" y="518" width="165" height="165" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="213" y1="518" x2="378" y2="683" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="378" y1="518" x2="213" y2="683" stroke="#BDBDBD" stroke-width="1"/>
+<text x="213" y="704" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Tất chạy bộ cổ ngắn</text>
+<text x="213" y="726" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">Từ 79.000 ₫</text>
+<circle cx="188" cy="438" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="188" y="442.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">4</text>
+<circle cx="380" cy="522" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="380" y="526.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">5</text>
+<rect x="90" y="764" width="28" height="30" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="104" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">‹</text>
+<rect x="124" y="764" width="28" height="30" rx="6" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="138" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<rect x="158" y="764" width="28" height="30" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="172" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">2</text>
+<rect x="192" y="764" width="28" height="30" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="206" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">3</text>
+<rect x="226" y="764" width="28" height="30" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="240" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">…</text>
+<rect x="260" y="764" width="28" height="30" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="274" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">5</text>
+<rect x="294" y="764" width="28" height="30" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="308" y="784" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">›</text>
+<circle cx="72" cy="776" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="72" y="780.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">6</text>
+<text x="207" y="830" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="middle">12 sản phẩm / trang</text>
+<text x="430" y="90" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">Ghi chú</text>
+<circle cx="441" cy="116" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="120.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<text x="460" y="120" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Biểu tượng giỏ hàng kèm số món đang có trong giỏ</text>
+<text x="460" y="140" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-05</text>
+<circle cx="441" cy="168" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="172.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+<text x="460" y="172" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Danh mục cuộn ngang; mục đang chọn tô đậm</text>
+<text x="460" y="192" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-01 · API #1</text>
+<circle cx="441" cy="220" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="224.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+<text x="460" y="224" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Lọc theo môn thể thao, khoảng giá; sắp xếp mới nhất /</text>
+<text x="460" y="242" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">giá tăng / giá giảm. Điều kiện lọc nằm trên URL để</text>
+<text x="460" y="260" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">gửi link cho bạn bè</text>
+<text x="460" y="280" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-04 · API #2</text>
+<circle cx="441" cy="308" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="312.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">4</text>
+<text x="460" y="312" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Có khuyến mãi: giá bán + giá gốc gạch ngang + nhãn %</text>
+<text x="460" y="330" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">giảm</text>
+<text x="460" y="350" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-01</text>
+<circle cx="441" cy="378" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="382.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">5</text>
+<text x="460" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Hết hàng ở mọi size: vẫn hiện, ảnh mờ, nhãn “Hết</text>
+<text x="460" y="400" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">hàng”</text>
+<text x="460" y="420" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-01</text>
+<circle cx="441" cy="448" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="452.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">6</text>
+<text x="460" y="452" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Phân trang, 12 sản phẩm mỗi trang</text>
+<text x="460" y="472" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-01</text>
+<circle cx="441" cy="500" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="441" y="504.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">7</text>
+<text x="460" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Không có kết quả: thông báo + gợi ý sản phẩm (hình</text>
+<text x="460" y="522" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">1b)</text>
+<text x="460" y="542" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-04</text>
+<text x="430" y="580" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#777" text-anchor="start" font-weight="bold">1b · Không có kết quả</text>
+<rect x="430" y="590" width="400" height="200" rx="14" fill="#fff" stroke="#333" stroke-width="2"/>
+<circle cx="818" cy="592" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="818" y="596.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">7</text>
+<circle cx="630" cy="630" r="16" fill="#fff" stroke="#777" stroke-width="2"/>
+<line x1="641" y1="641" x2="650" y2="650" stroke="#777" stroke-width="2"/>
+<text x="630" y="678" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="middle">Không tìm thấy sản phẩm cho “áo bóng rổ”</text>
+<text x="450" y="708" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Có thể bạn thích</text>
+<rect x="450" y="718" width="112" height="58" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="450" y1="718" x2="562" y2="776" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="562" y1="718" x2="450" y2="776" stroke="#BDBDBD" stroke-width="1"/>
+<rect x="574" y="718" width="112" height="58" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="574" y1="718" x2="686" y2="776" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="686" y1="718" x2="574" y2="776" stroke="#BDBDBD" stroke-width="1"/>
+<rect x="698" y="718" width="112" height="58" rx="4" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="1.5"/>
+<line x1="698" y1="718" x2="810" y2="776" stroke="#BDBDBD" stroke-width="1"/>
+<line x1="810" y1="718" x2="698" y2="776" stroke="#BDBDBD" stroke-width="1"/>
+</svg>
