@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1230" viewBox="0 0 1320 1230">
+<rect width="1320" height="1230" fill="#fff"/>
+<text x="20" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#222" text-anchor="start" font-weight="bold">04 · Admin — Quản lý đơn hàng — desktop 1280px</text>
+<rect x="20" y="60" width="1280" height="800" rx="10" fill="#fff" stroke="#333" stroke-width="2.5"/>
+<rect x="20" y="60" width="210" height="800" rx="10" fill="#F2F2F2" stroke="#F2F2F2" stroke-width="0"/>
+<line x1="230" y1="60" x2="230" y2="860" stroke="#E0E0E0" stroke-width="1"/>
+<text x="40" y="100" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">SPORT SHOP</text>
+<text x="40" y="118" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">Quản trị</text>
+<rect x="32" y="132" width="186" height="36" rx="6" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="48" y="156" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff" text-anchor="start" font-weight="bold">Đơn hàng</text>
+<text x="48" y="200" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="start">Sản phẩm</text>
+<text x="48" y="244" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="start">Kho</text>
+<text x="48" y="288" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="start">Thống kê</text>
+<text x="48" y="332" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="start">Cài đặt</text>
+<line x1="32" y1="790" x2="218" y2="790" stroke="#DADADA" stroke-width="1"/>
+<text x="40" y="816" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">Trần Thị Bình</text>
+<text x="40" y="836" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">STAFF · Đăng xuất</text>
+<text x="250" y="104" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#222" text-anchor="start" font-weight="bold">Đơn hàng</text>
+<text x="303.0" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">Tất cả (128)</text>
+<text x="434.0" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">Chờ thanh toán (4)</text>
+<text x="568.5" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#D32F2F" text-anchor="middle" font-weight="bold">Cần xử lý (1)</text>
+<text x="696.0" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">Chờ xác nhận (5)</text>
+<text x="827.0" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Đang giao (12)</text>
+<line x1="771" y1="158" x2="883" y2="158" stroke="#222" stroke-width="3"/>
+<text x="965.0" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">Đang hoàn hàng (2)</text>
+<text x="1106.5" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">Hoàn thành (98)</text>
+<text x="1220.0" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">Đã hủy (6)</text>
+<line x1="250" y1="160" x2="1280" y2="160" stroke="#E0E0E0" stroke-width="1"/>
+<circle cx="242" cy="130" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="242" y="134.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<rect x="250" y="176" width="300" height="36" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="262" y="199" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#777" text-anchor="start">⚲  Tìm mã đơn hoặc SĐT…</text>
+<rect x="562" y="176" width="220" height="36" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="574" y="199" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">01/12/2026 – 07/12/2026  ▾</text>
+<circle cx="788" cy="178" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="788" y="182.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+<rect x="250" y="228" width="600" height="36" rx="0" fill="#F2F2F2" stroke="#F2F2F2" stroke-width="0"/>
+<text x="262" y="251" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Mã đơn</text>
+<text x="387" y="251" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Thời gian</text>
+<text x="502" y="251" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Khách</text>
+<text x="632" y="251" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Tổng tiền</text>
+<text x="732" y="251" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Trạng thái</text>
+<text x="262" y="297" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261207-M3TP</text>
+<text x="387" y="297" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">07/12 09:41</text>
+<text x="502" y="290" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Lê Minh</text>
+<text x="502" y="308" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0987 654 321</text>
+<text x="632" y="297" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">459.000 ₫</text>
+<rect x="732" y="280" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="296" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="320" x2="850" y2="320" stroke="#EEEEEE" stroke-width="1"/>
+<text x="262" y="353" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261206-Q8ZA</text>
+<text x="387" y="353" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">06/12 21:15</text>
+<text x="502" y="346" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Phạm Hà</text>
+<text x="502" y="364" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0903 111 222</text>
+<text x="632" y="353" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">1.038.000 ₫</text>
+<rect x="732" y="336" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="376" x2="850" y2="376" stroke="#EEEEEE" stroke-width="1"/>
+<rect x="250" y="376" width="600" height="56" rx="0" fill="#EDEDED" stroke="#EDEDED" stroke-width="0"/>
+<text x="262" y="409" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261201-K7QX</text>
+<text x="387" y="409" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">01/12 10:02</text>
+<text x="502" y="402" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Nguyễn Văn An</text>
+<text x="502" y="420" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0912 345 678</text>
+<text x="632" y="409" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">736.000 ₫</text>
+<rect x="732" y="392" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="408" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="432" x2="850" y2="432" stroke="#EEEEEE" stroke-width="1"/>
+<text x="262" y="465" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261130-B4WD</text>
+<text x="387" y="465" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">30/11 16:20</text>
+<text x="502" y="458" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Đỗ Thu</text>
+<text x="502" y="476" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0978 000 111</text>
+<text x="632" y="465" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">298.000 ₫</text>
+<rect x="732" y="448" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="464" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="488" x2="850" y2="488" stroke="#EEEEEE" stroke-width="1"/>
+<text x="262" y="521" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261129-H2NR</text>
+<text x="387" y="521" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">29/11 08:05</text>
+<text x="502" y="514" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Vũ Nam</text>
+<text x="502" y="532" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0966 222 333</text>
+<text x="632" y="521" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">189.000 ₫</text>
+<rect x="732" y="504" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="520" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="544" x2="850" y2="544" stroke="#EEEEEE" stroke-width="1"/>
+<text x="262" y="577" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261128-T9KE</text>
+<text x="387" y="577" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">28/11 19:47</text>
+<text x="502" y="570" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Hoàng Lan</text>
+<text x="502" y="588" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0915 444 555</text>
+<text x="632" y="577" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">627.000 ₫</text>
+<rect x="732" y="560" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="576" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="600" x2="850" y2="600" stroke="#EEEEEE" stroke-width="1"/>
+<text x="262" y="633" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">SP261127-C6YU</text>
+<text x="387" y="633" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">27/11 11:30</text>
+<text x="502" y="626" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Bùi Đức</text>
+<text x="502" y="644" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">0934 666 777</text>
+<text x="632" y="633" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">79.000 ₫</text>
+<rect x="732" y="616" width="82" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="773" y="632" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<line x1="250" y1="656" x2="850" y2="656" stroke="#EEEEEE" stroke-width="1"/>
+<circle cx="852" cy="246" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="852" y="250.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+<text x="250" y="690" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start">Hiển thị 1–20 / 128 đơn · mới nhất trên cùng</text>
+<rect x="610" y="672" width="28" height="28" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="624" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">‹</text>
+<rect x="644" y="672" width="28" height="28" rx="6" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="658" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<rect x="678" y="672" width="28" height="28" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="692" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">2</text>
+<rect x="712" y="672" width="28" height="28" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="726" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">3</text>
+<rect x="746" y="672" width="28" height="28" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="760" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">…</text>
+<rect x="780" y="672" width="28" height="28" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="794" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">7</text>
+<rect x="814" y="672" width="28" height="28" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="828" y="691" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="middle">›</text>
+<rect x="880" y="60" width="420" height="800" rx="0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="900" y="98" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#222" text-anchor="start" font-weight="bold">SP261201-K7QX</text>
+<text x="1280" y="98" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#777" text-anchor="end">✕</text>
+<rect x="900" y="112" width="90" height="24" rx="12" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="945" y="128" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#222" text-anchor="middle">Đang giao</text>
+<circle cx="1284" cy="152" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="1284" y="156.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">4</text>
+<text x="900" y="164" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">KHÁCH HÀNG</text>
+<line x1="900" y1="172" x2="1280" y2="172" stroke="#EEEEEE" stroke-width="1"/>
+<text x="900" y="190" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Nguyễn Văn An · 0912 345 678</text>
+<text x="900" y="210" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Số 1, ngõ 2, Phường Láng, Hà Nội</text>
+<text x="900" y="242" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">SẢN PHẨM (giá lúc mua)</text>
+<line x1="900" y1="250" x2="1280" y2="250" stroke="#EEEEEE" stroke-width="1"/>
+<text x="900" y="268" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Áo chạy bộ Dri-fit nam · M · Đen</text>
+<text x="1280" y="268" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="end">2 × 219.000</text>
+<text x="900" y="290" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Quần legging nữ · S · Đen</text>
+<text x="1280" y="290" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="end">1 × 189.000</text>
+<text x="900" y="312" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Tất thể thao · Freesize · Trắng</text>
+<text x="1280" y="312" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="end">1 × 79.000</text>
+<text x="900" y="342" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start" font-weight="bold">Phí ship 30.000 · Tổng 736.000 ₫</text>
+<text x="900" y="374" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">THANH TOÁN</text>
+<line x1="900" y1="382" x2="1280" y2="382" stroke="#EEEEEE" stroke-width="1"/>
+<text x="900" y="400" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Chuyển khoản · Đã nhận 736.000 ₫</text>
+<text x="900" y="420" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">SePay · mã GD FT2633512345 · 01/12 10:15</text>
+<text x="900" y="452" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">LỊCH SỬ TRẠNG THÁI</text>
+<line x1="900" y1="460" x2="1280" y2="460" stroke="#EEEEEE" stroke-width="1"/>
+<circle cx="908" cy="476" r="5" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="908" y1="481" x2="908" y2="515" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="924" y="480" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Tạo đơn → Chờ thanh toán</text>
+<text x="924" y="497" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">01/12 10:02 · Khách</text>
+<circle cx="908" cy="520" r="5" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="908" y1="525" x2="908" y2="559" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="924" y="524" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">→ Chờ xác nhận (nhận đủ tiền)</text>
+<text x="924" y="541" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">01/12 10:15 · Hệ thống</text>
+<circle cx="908" cy="564" r="5" fill="#222" stroke="#222" stroke-width="2"/>
+<text x="924" y="568" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start" font-weight="bold">→ Đang giao</text>
+<text x="924" y="585" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#777" text-anchor="start">01/12 14:30 · Trần Thị Bình</text>
+<rect x="880" y="760" width="420" height="100" rx="0" fill="#F2F2F2" stroke="#F2F2F2" stroke-width="0"/>
+<text x="900" y="784" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start" font-weight="bold">Chuyển trạng thái</text>
+<rect x="900" y="796" width="180" height="42" rx="8" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="990.0" y="821.9" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Hoàn thành</text>
+<rect x="1092" y="796" width="188" height="42" rx="8" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="1186.0" y="821.9" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="middle">Đang hoàn hàng</text>
+<circle cx="1286" cy="774" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="1286" y="778.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">5</text>
+<text x="20" y="905" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">Ghi chú</text>
+<circle cx="31" cy="931" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="31" y="935.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+<text x="50" y="935" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Tab theo trạng thái kèm số lượng; “Cần xử lý” tô đỏ để không bị bỏ sót</text>
+<text x="50" y="955" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-12 · API #28</text>
+<circle cx="31" cy="983" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="31" y="987.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+<text x="50" y="987" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Tìm theo mã đơn / SĐT; lọc khoảng ngày</text>
+<text x="50" y="1007" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-12</text>
+<circle cx="31" cy="1035" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="31" y="1039.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+<text x="50" y="1039" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Đơn mới nhất trên cùng, 20 đơn/trang; bấm một dòng để mở chi tiết bên phải</text>
+<text x="50" y="1059" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-12</text>
+<circle cx="31" cy="1087" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="31" y="1091.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">4</text>
+<text x="50" y="1091" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Chi tiết: khách, sản phẩm theo giá lúc mua, giao dịch tiền, dòng thời gian</text>
+<text x="50" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">(ai đổi, lúc nào)</text>
+<text x="50" y="1129" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-12 · US-02 · API #29</text>
+<text x="660" y="905" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">Ghi chú</text>
+<circle cx="671" cy="931" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="671" y="935.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">5</text>
+<text x="690" y="935" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Chỉ hiện nút chuyển hợp lệ theo sơ đồ:</text>
+<text x="690" y="953" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">đơn Đang giao → Hoàn thành / Đang hoàn</text>
+<text x="690" y="971" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">hàng (không có nút Hủy)</text>
+<text x="690" y="991" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-02 · API #30</text>
+<circle cx="671" cy="1019" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="671" y="1023.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">6</text>
+<text x="690" y="1023" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">Hủy đơn (ở trạng thái cho phép) bắt buộc</text>
+<text x="690" y="1041" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">nhập lý do — hình 4b; đơn đã nhận tiền</text>
+<text x="690" y="1059" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#222" text-anchor="start">thì ghi nhận hoàn tiền</text>
+<text x="690" y="1079" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#EF6C00" text-anchor="start" font-weight="bold">US-02 · API #30, #31</text>
+<text x="1000" y="905" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#777" text-anchor="start" font-weight="bold">4b · Popup hủy đơn</text>
+<rect x="1000" y="917" width="300" height="210" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+<circle cx="1290" cy="919" r="11" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.5"/>
+<text x="1290" y="923.5" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">6</text>
+<text x="1018" y="947" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="start" font-weight="bold">Hủy đơn SP261206-Q8ZA?</text>
+<text x="1018" y="969" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start">Tồn kho sẽ được cộng lại.</text>
+<text x="1018" y="995" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#777" text-anchor="start">Lý do hủy *</text>
+<rect x="1018" y="1003" width="264" height="56" rx="6" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="1030" y="1025" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#222" text-anchor="start">Khách đổi ý, báo qua Messenger</text>
+<rect x="1018" y="1073" width="120" height="38" rx="8" fill="#fff" stroke="#9E9E9E" stroke-width="1.5"/>
+<text x="1078.0" y="1096.9" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#222" text-anchor="middle">Quay lại</text>
+<rect x="1150" y="1073" width="132" height="38" rx="8" fill="#333" stroke="#333" stroke-width="1.5"/>
+<text x="1216.0" y="1096.9" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Xác nhận hủy</text>
+</svg>

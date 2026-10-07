@@ -10,20 +10,20 @@ Gặp câu không trả lời được → đó chính là câu phỏng vấn s�
 ## Giai đoạn 0 — Nền tảng (3–5 ngày)
 
 ### Git & GitHub
-- [ ] `git init`, commit đầu tiên, tạo repo **public** trên GitHub và push
-- [ ] Thử quy trình làm việc thật: tạo nhánh `docs/user-stories` → commit → mở Pull Request → tự review → merge
-- [ ] Viết commit theo chuẩn [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `docs:`, `chore:`
+- [ x ] `git init`, commit đầu tiên, tạo repo **public** trên GitHub và push
+- [ x ] Thử quy trình làm việc thật: tạo nhánh `docs/user-stories` → commit → mở Pull Request → tự review → merge
+- [ x ] Viết commit theo chuẩn [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `docs:`, `chore:`
 
 ### Web & HTTP
-- [ ] Mở một trang bán hàng bất kỳ → DevTools (F12) → tab **Network** → xem 1 request: method, URL, status code, headers, response JSON
-- [ ] Gọi API công khai bằng `curl` hoặc extension Thunder Client:
+- [ x ] Mở một trang bán hàng bất kỳ → DevTools (F12) → tab **Network** → xem 1 request: method, URL, status code, headers, response JSON
+- [ x ] Gọi API công khai bằng `curl` hoặc extension Thunder Client:
   - `GET https://dummyjson.com/products?limit=5`
   - `POST https://dummyjson.com/products/add` với body JSON
-- [ ] Tự viết ra giấy: chuyện gì xảy ra từ lúc gõ URL đến lúc trang hiện ra (DNS → TCP → TLS → HTTP request → response → render)
+- [ x ] Tự viết ra giấy: chuyện gì xảy ra từ lúc gõ URL đến lúc trang hiện ra (DNS → TCP → TLS → HTTP request → response → render)
 
 ### TypeScript
-- [ ] Học: kiểu cơ bản, `interface` / `type`, union, generic cơ bản, `async/await` — [TS Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [ ] Bài tập: viết `playground/cart.ts` gồm kiểu `Product`, `CartItem` và hàm `calcTotal(items, discountPercent)`; chạy bằng `npx tsx playground/cart.ts`
+- [ x ] Học: kiểu cơ bản, `interface` / `type`, union, generic cơ bản, `async/await` — [TS Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [ x ] Bài tập: viết `playground/cart.ts` gồm kiểu `Product`, `CartItem` và hàm `calcTotal(items, discountPercent)`; chạy bằng `npx tsx playground/cart.ts`
 
 ### Tự kiểm tra
 1. GET khác POST thế nào? PUT khác PATCH thế nào?
