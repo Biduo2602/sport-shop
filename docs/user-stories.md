@@ -80,7 +80,7 @@ Tiêu chí chấp nhận:
 - [ ] **Server tự tính lại** giá và tổng tiền, không dùng số tiền trình duyệt gửi lên
 - [ ] Tồn kho bị trừ ngay khi tạo đơn; nếu có món vừa hết hàng thì không tạo đơn và báo rõ món đó
 - [ ] Bấm "Đặt hàng" hai lần liên tiếp chỉ tạo **một** đơn
-- [ ] Đặt thành công: hiện trang xác nhận có mã đơn (vd `SP2612-0042`), giỏ hàng được xóa
+- [ ] Đặt thành công: hiện trang xác nhận có mã đơn (vd `SP261201-K7QX`), giỏ hàng được xóa
 - [ ] Đơn COD vào trạng thái *Chờ xác nhận*; đơn chuyển khoản vào *Chờ thanh toán*
 
 ### US-07 · Thanh toán chuyển khoản bằng VietQR

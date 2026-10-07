@@ -125,7 +125,7 @@ Dùng format mặc định của NestJS:
 - **201 Created** *(không kèm `Location`: đơn hàng không có API đọc công khai theo mã — xem 4.1)*
 ```json
 {
-  "code": "SP2612-0042",
+  "code": "SP261201-K7QX",
   "status": "PENDING_PAYMENT",
   "paymentMethod": "BANK_TRANSFER",
   "subtotal": 627000,
@@ -136,7 +136,7 @@ Dùng format mặc định của NestJS:
     "bankName": "MB Bank",
     "accountNumber": "0123456789",
     "accountName": "NGUYEN VAN A",
-    "transferContent": "SP2612-0042",
+    "transferContent": "SP261201-K7QX",
     "qrImageUrl": "https://img.vietqr.io/image/..."
   }
 }
@@ -271,4 +271,4 @@ Luồng: SePay → webhook (#38) → server cập nhật đơn. Trình duyệt c
 | Server-Sent Events | Server đẩy ngay khi có tiền | Phải giữ kết nối mở, cấu hình Nginx thêm |
 | WebSocket | Hai chiều, thời gian thực | Quá phức tạp cho nhu cầu "chờ một sự kiện" |
 
-Response của #7 **chỉ có** `status`, `amountPaid`, `total` — không có tên, SĐT, địa chỉ — vì mã đơn có thể đoán được (đánh số tăng dần).
+Response của #7 **chỉ có** `status`, `amountPaid`, `total` — không có tên, SĐT, địa chỉ — vì đây là API công khai: dù mã đơn có phần ngẫu nhiên (ADR 0002), chỉ trả những gì trang thanh toán thật sự cần.

@@ -127,7 +127,7 @@ Table product_images {
 
 Table orders {
   id bigint [pk, increment]
-  code varchar(20) [not null, unique, note: 'Mã đơn cho khách, vd SP2612-0042']
+  code varchar(20) [not null, unique, note: 'Mã đơn cho khách: SP + YYMMDD + 4 ký tự ngẫu nhiên, vd SP261201-K7QX (ADR 0002)']
   status order_status [not null]
   payment_method payment_method [not null]
   customer_name varchar(100) [not null]
