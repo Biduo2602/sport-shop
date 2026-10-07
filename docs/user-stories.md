@@ -74,7 +74,7 @@ Tiêu chí chấp nhận:
 **Là** khách, **tôi muốn** đặt hàng chỉ với tên, số điện thoại, địa chỉ mà không cần tạo tài khoản, **để** mua nhanh.
 
 Tiêu chí chấp nhận:
-- [ ] Bắt buộc: họ tên, SĐT (10 số, bắt đầu bằng 0), tỉnh/thành, quận/huyện, phường/xã, địa chỉ cụ thể. Ghi chú không bắt buộc
+- [ ] Bắt buộc: họ tên, SĐT (10 số, bắt đầu bằng 0), tỉnh/thành, phường/xã, địa chỉ cụ thể. Ghi chú không bắt buộc. *(Địa giới hành chính 2 cấp từ 01/07/2025 — không còn quận/huyện)*
 - [ ] Chọn phương thức thanh toán: COD hoặc chuyển khoản
 - [ ] Hiện phí ship; đơn từ ngưỡng miễn phí ship trở lên thì phí ship = 0 (ngưỡng do admin cấu hình)
 - [ ] **Server tự tính lại** giá và tổng tiền, không dùng số tiền trình duyệt gửi lên

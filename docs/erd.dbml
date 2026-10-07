@@ -1,0 +1,311 @@
+// ERD sport-shop — dán vào https://dbdiagram.io/d để xem sơ đồ
+// Kiểm tra cú pháp: npx -p @dbml/cli dbml2sql docs/erd.dbml --postgres
+// Giải thích từng bảng và quan hệ: docs/database.md
+
+Project sport_shop {
+  database_type: 'PostgreSQL'
+  Note: 'Website bán trang phục & dụng cụ thể thao'
+}
+
+// ============================================================
+// ENUM
+// ============================================================
+
+Enum sport {
+  running [note: 'Chạy bộ']
+  gym
+  yoga
+  football [note: 'Bóng đá']
+  badminton [note: 'Cầu lông']
+  pickleball
+  multi [note: 'Đa năng']
+}
+
+Enum order_status {
+  PENDING_PAYMENT [note: 'Chờ thanh toán (chuyển khoản)']
+  NEEDS_REVIEW [note: 'Cần xử lý (nhận thiếu tiền)']
+  PENDING_CONFIRM [note: 'Chờ xác nhận']
+  SHIPPING [note: 'Đang giao']
+  RETURNING [note: 'Đang hoàn hàng']
+  COMPLETED [note: 'Hoàn thành']
+  CANCELLED [note: 'Đã hủy']
+}
+
+Enum payment_method {
+  COD
+  BANK_TRANSFER
+}
+
+Enum transaction_type {
+  INCOMING [note: 'Tiền vào, nhận qua webhook']
+  REFUND [note: 'Hoàn tiền, admin ghi nhận thủ công']
+}
+
+Enum inventory_reason {
+  RESTOCK [note: 'Nhập hàng']
+  ADJUSTMENT [note: 'Điều chỉnh sau kiểm kê']
+  SALE [note: 'Trừ kho khi khách đặt hàng']
+  ORDER_CANCELLED [note: 'Cộng lại khi hủy đơn chưa giao']
+  RETURN_RECEIVED [note: 'Cộng lại khi nhận được hàng hoàn']
+}
+
+Enum admin_role {
+  OWNER [note: 'Chủ shop: toàn quyền, quản lý tài khoản admin']
+  STAFF [note: 'Nhân viên: sản phẩm, kho, đơn hàng']
+}
+
+// ============================================================
+// SẢN PHẨM
+// ============================================================
+
+Table categories {
+  id bigint [pk, increment]
+  name varchar(100) [not null]
+  slug varchar(120) [not null, unique, note: 'Dùng trên URL, vd ao-the-thao']
+  sort_order int [not null, default: 0]
+  is_active boolean [not null, default: true]
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+}
+
+Table products {
+  id bigint [pk, increment]
+  category_id bigint [not null]
+  name varchar(200) [not null]
+  slug varchar(220) [not null, unique]
+  sport sport [not null]
+  description text
+  is_hidden boolean [not null, default: false, note: 'Xóa mềm – US-10']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (category_id, is_hidden)
+  }
+}
+
+Table product_variants {
+  id bigint [pk, increment]
+  product_id bigint [not null]
+  sku varchar(50) [not null, unique]
+  size varchar(10) [not null]
+  color varchar(50) [not null]
+  price int [not null, note: 'VNĐ, số nguyên']
+  sale_price int [note: 'Trống = không khuyến mãi']
+  stock int [not null, default: 0, note: 'Số dư hiện tại; lịch sử ở inventory_movements']
+  low_stock_threshold int [not null, default: 5]
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (product_id, size, color) [unique, name: 'uq_variant_product_size_color']
+  }
+
+  checks {
+    `price > 0` [name: 'chk_variant_price_positive']
+    `sale_price IS NULL OR (sale_price >= 0 AND sale_price < price)` [name: 'chk_variant_sale_price']
+    `stock >= 0` [name: 'chk_variant_stock_not_negative']
+  }
+}
+
+Table product_images {
+  id bigint [pk, increment]
+  product_id bigint [not null]
+  url varchar(500) [not null]
+  alt_text varchar(200) [note: 'Mô tả ảnh cho SEO & trình đọc màn hình']
+  sort_order int [not null, default: 0, note: '0 = ảnh đại diện']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (product_id, sort_order)
+  }
+}
+
+// ============================================================
+// ĐƠN HÀNG & THANH TOÁN
+// ============================================================
+
+Table orders {
+  id bigint [pk, increment]
+  code varchar(20) [not null, unique, note: 'Mã đơn cho khách, vd SP2612-0042']
+  status order_status [not null]
+  payment_method payment_method [not null]
+  customer_name varchar(100) [not null]
+  customer_phone varchar(15) [not null]
+  province varchar(100) [not null, note: 'Tỉnh/thành phố']
+  ward varchar(100) [not null, note: 'Phường/xã – địa giới 2 cấp từ 01/07/2025, không còn quận/huyện']
+  address_detail varchar(255) [not null, note: 'Số nhà, đường']
+  note text
+  subtotal int [not null, note: 'Tổng tiền hàng, server tự tính']
+  shipping_fee int [not null, default: 0]
+  total int [not null, note: 'subtotal + shipping_fee']
+  amount_paid int [not null, default: 0, note: 'Tổng tiền đã nhận, cộng dồn từ payment_transactions']
+  payment_due_at timestamptz [note: 'Chỉ đơn chuyển khoản: quá hạn mà chưa nhận đồng nào thì tự hủy (US-07)']
+  idempotency_key varchar(64) [unique, note: 'Chống bấm Đặt hàng 2 lần tạo 2 đơn (US-06)']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (status, created_at) [note: 'Admin lọc đơn theo trạng thái, mới nhất trước (US-12)']
+    customer_phone [note: 'Tra cứu đơn (US-08), tìm theo SĐT (US-12)']
+    (status, payment_due_at) [note: 'Tác vụ định kỳ tìm đơn quá hạn thanh toán']
+  }
+
+  checks {
+    `subtotal >= 0 AND shipping_fee >= 0` [name: 'chk_order_amounts_not_negative']
+    `total = subtotal + shipping_fee` [name: 'chk_order_total']
+    `amount_paid >= 0` [name: 'chk_order_amount_paid']
+  }
+}
+
+Table order_items {
+  id bigint [pk, increment]
+  order_id bigint [not null]
+  variant_id bigint [not null]
+  product_name varchar(200) [not null, note: 'Bản sao lúc mua']
+  sku varchar(50) [not null, note: 'Bản sao lúc mua']
+  size varchar(10) [not null, note: 'Bản sao lúc mua']
+  color varchar(50) [not null, note: 'Bản sao lúc mua']
+  unit_price int [not null, note: 'Đơn giá lúc mua – đổi giá sau này không ảnh hưởng (US-10)']
+  quantity int [not null]
+  line_total int [not null]
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    order_id
+    variant_id [note: 'Thống kê sản phẩm bán chạy (US-13)']
+  }
+
+  checks {
+    `quantity > 0` [name: 'chk_item_quantity_positive']
+    `unit_price >= 0` [name: 'chk_item_unit_price']
+    `line_total = unit_price * quantity` [name: 'chk_item_line_total']
+  }
+}
+
+Table order_status_history {
+  id bigint [pk, increment]
+  order_id bigint [not null]
+  from_status order_status [note: 'Trống ở dòng đầu tiên – lúc đơn vừa được tạo']
+  to_status order_status [not null]
+  changed_by bigint [note: 'Admin thực hiện; trống = hệ thống hoặc khách']
+  reason text [note: 'Bắt buộc khi hủy đơn (US-02) – kiểm tra trong code']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (order_id, created_at) [note: 'Hiện các mốc thời gian của đơn (US-08)']
+  }
+}
+
+Table payment_transactions {
+  id bigint [pk, increment]
+  order_id bigint [note: 'Trống = tiền đến không khớp đơn nào, chờ admin xử lý']
+  admin_id bigint [note: 'Admin ghi nhận hoàn tiền; trống với tiền vào qua webhook']
+  type transaction_type [not null]
+  provider varchar(30) [not null, note: 'SEPAY | MANUAL']
+  provider_transaction_id varchar(100) [note: 'Mã giao dịch phía ngân hàng/SePay']
+  amount int [not null]
+  transfer_content varchar(255) [note: 'Nội dung chuyển khoản – dùng để tìm mã đơn']
+  occurred_at timestamptz [not null, note: 'Thời điểm giao dịch phía ngân hàng']
+  raw_payload jsonb [note: 'Dữ liệu webhook gốc – để điều tra khi có sai lệch']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (provider, provider_transaction_id) [unique, name: 'uq_payment_provider_txn', note: 'Webhook gửi lặp chỉ ghi nhận một lần (US-07). PostgreSQL cho phép nhiều dòng có giá trị trống – phù hợp hoàn tiền thủ công']
+    order_id
+  }
+
+  checks {
+    `amount > 0` [name: 'chk_payment_amount_positive']
+  }
+}
+
+// ============================================================
+// KHO, QUẢN TRỊ & CẤU HÌNH
+// ============================================================
+
+Table inventory_movements {
+  id bigint [pk, increment]
+  variant_id bigint [not null]
+  order_id bigint [note: 'Có khi bán / hủy / hoàn; trống khi nhập hàng, điều chỉnh']
+  admin_id bigint [note: 'Có khi admin nhập/điều chỉnh; trống khi hệ thống tự trừ']
+  reason inventory_reason [not null]
+  quantity_change int [not null, note: 'Dương = cộng vào kho, âm = trừ khỏi kho']
+  stock_after int [not null, note: 'Số dư sau thay đổi – giúp đối soát với product_variants.stock']
+  note text [note: 'Bắt buộc với nhập hàng / điều chỉnh (US-11) – kiểm tra trong code']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (variant_id, created_at) [note: 'Xem lịch sử kho của một biến thể (US-11)']
+    order_id
+  }
+
+  checks {
+    `quantity_change <> 0` [name: 'chk_movement_not_zero']
+    `stock_after >= 0` [name: 'chk_movement_stock_after']
+  }
+}
+
+Table admins {
+  id bigint [pk, increment]
+  email varchar(255) [not null, unique]
+  password_hash varchar(255) [not null, note: 'bcrypt – không bao giờ lưu mật khẩu gốc (US-09)']
+  full_name varchar(100) [not null]
+  role admin_role [not null, default: 'STAFF']
+  is_active boolean [not null, default: true, note: 'Nghỉ việc thì tắt, không xóa – giữ dấu vết ai đã làm gì']
+  failed_login_count int [not null, default: 0]
+  locked_until timestamptz [note: 'Sai 5 lần thì khóa 15 phút (US-09)']
+  last_login_at timestamptz
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+}
+
+Table settings {
+  key varchar(100) [pk, note: 'vd free_shipping_threshold, shipping_fee, bank_account']
+  value jsonb [not null, note: 'jsonb để lưu được cả số lẫn object (thông tin ngân hàng)']
+  description text
+  updated_at timestamptz [not null, default: `now()`]
+}
+
+// ============================================================
+// QUAN HỆ — xem lý do từng dòng ở docs/database.md, Bước 2
+// ============================================================
+
+Ref: products.category_id > categories.id [delete: restrict]
+Ref: product_variants.product_id > products.id [delete: restrict]
+Ref: product_images.product_id > products.id [delete: cascade]
+
+Ref: order_items.order_id > orders.id [delete: restrict]
+Ref: order_items.variant_id > product_variants.id [delete: restrict]
+Ref: order_status_history.order_id > orders.id [delete: restrict]
+Ref: order_status_history.changed_by > admins.id [delete: restrict]
+Ref: payment_transactions.order_id > orders.id [delete: restrict]
+Ref: payment_transactions.admin_id > admins.id [delete: restrict]
+
+Ref: inventory_movements.variant_id > product_variants.id [delete: restrict]
+Ref: inventory_movements.order_id > orders.id [delete: restrict]
+Ref: inventory_movements.admin_id > admins.id [delete: restrict]
+
+// ============================================================
+// NHÓM HIỂN THỊ TRÊN SƠ ĐỒ
+// ============================================================
+
+TableGroup san_pham [color: #2E7D32] {
+  categories
+  products
+  product_variants
+  product_images
+}
+
+TableGroup don_hang_thanh_toan [color: #1565C0] {
+  orders
+  order_items
+  order_status_history
+  payment_transactions
+}
+
+TableGroup kho_quan_tri [color: #E65100] {
+  inventory_movements
+  admins
+  settings
+}

@@ -1,6 +1,6 @@
 # Thiết kế cơ sở dữ liệu
 
-> Giai đoạn 1 · Bước 1 — Danh sách thực thể. Bước 2 (quan hệ, khóa) và bước 3 (ERD trên dbdiagram.io) sẽ bổ sung vào file này.
+> Giai đoạn 1 · Bước 1 — Danh sách thực thể · Bước 2 — Quan hệ giữa các bảng · Bước 3 — ERD: [`erd.dbml`](erd.dbml) (vẽ trên dbdiagram.io).
 
 ## Cách tìm thực thể
 
@@ -26,7 +26,7 @@ Nếu chỉ là một đặc điểm của thứ khác → **cột**. Nếu danh
 
 | Bảng | Lưu thông tin gì (trường chính) | Từ user story | Vì sao là bảng riêng |
 |---|---|---|---|
-| `orders` | **mã đơn**, tên khách, SĐT, tỉnh / quận / phường, địa chỉ, ghi chú, phương thức thanh toán, **trạng thái**, tạm tính, phí ship, tổng tiền, số tiền đã nhận, hạn thanh toán | US-06, 07, 08, 12 | Trung tâm của hệ thống |
+| `orders` | **mã đơn**, tên khách, SĐT, tỉnh / phường (địa giới 2 cấp), địa chỉ, ghi chú, phương thức thanh toán, **trạng thái**, tạm tính, phí ship, tổng tiền, số tiền đã nhận, hạn thanh toán | US-06, 07, 08, 12 | Trung tâm của hệ thống |
 | `order_items` | đơn hàng, biến thể, **tên sản phẩm, size, màu, đơn giá lúc mua** (bản sao), số lượng, thành tiền | US-06, 10 | Một đơn có nhiều món. Lưu **bản sao** giá và tên để đổi giá sản phẩm sau này không làm sai đơn cũ (US-10) |
 | `order_status_history` | đơn hàng, trạng thái cũ → mới, **ai đổi** (admin, hoặc trống nếu hệ thống tự đổi), lý do, thời điểm | US-02, 08 | Một đơn đổi trạng thái nhiều lần; US-02 bắt lưu ai/lúc nào/lý do; US-08 hiện các mốc thời gian cho khách |
 | `payment_transactions` | đơn hàng (có thể trống), **mã giao dịch ngân hàng** (không trùng), loại (tiền vào / hoàn tiền), số tiền, nội dung chuyển khoản, thời điểm, dữ liệu webhook gốc | US-02, 07 | Một đơn có thể nhận **nhiều** lần chuyển (thiếu → chuyển bù); mã giao dịch **không trùng** giúp webhook gửi lặp chỉ xử lý một lần; tiền có thể đến cho đơn đã hủy hoặc không khớp đơn nào |
@@ -36,8 +36,34 @@ Nếu chỉ là một đặc điểm của thứ khác → **cột**. Nếu danh
 | Bảng | Lưu thông tin gì (trường chính) | Từ user story | Vì sao là bảng riêng |
 |---|---|---|---|
 | `inventory_movements` | biến thể, **số lượng thay đổi** (+ nhập / − xuất), lý do (nhập hàng, điều chỉnh, bán, hủy đơn, hoàn hàng), đơn hàng liên quan, admin thực hiện, ghi chú, thời điểm | US-11, 02 | US-11 bắt lưu lịch sử *ai, lúc nào, bao nhiêu, lý do*. Cột `stock` ở `product_variants` chỉ là **số dư hiện tại**; bảng này là **sổ cái** giải thích vì sao có số dư đó |
-| `admins` | email (không trùng), **mật khẩu đã băm**, tên, vai trò, số lần đăng nhập sai, khóa đến lúc nào, lần đăng nhập cuối | US-09 | Nhiều thành viên nhóm, mỗi người một tài khoản; cần biết *ai* đã đổi trạng thái đơn, nhập kho |
+| `admins` | email (không trùng), **mật khẩu đã băm**, tên, vai trò, **đang hoạt động** (tắt thay vì xóa), số lần đăng nhập sai, khóa đến lúc nào, lần đăng nhập cuối | US-09 | Nhiều thành viên nhóm, mỗi người một tài khoản; cần biết *ai* đã đổi trạng thái đơn, nhập kho |
 | `settings` | khóa, giá trị (vd `free_shipping_threshold`, `shipping_fee`, thông tin tài khoản ngân hàng) | US-06, 07 | Admin đổi được mà không cần sửa code và deploy lại |
+
+## Bước 2 — Quan hệ giữa các bảng
+
+| # | Quan hệ | Kiểu | Khóa ngoại (bảng.cột) | Bắt buộc / được trống | ON DELETE | Lý do |
+|---|---|---|---|---|---|---|
+| 1 | categories – products | 1-n | `products.category_id` | Bắt buộc | restrict | Không cho xóa danh mục khi còn sản phẩm — phải chuyển sản phẩm sang danh mục khác trước |
+| 2 | products – product_variants | 1-n | `product_variants.product_id` | Bắt buộc | restrict | Biến thể có lịch sử kho và đơn hàng; muốn bỏ thì ẩn sản phẩm |
+| 3 | products – product_images | 1-n | `product_images.product_id` | Bắt buộc | **cascade** | Ảnh *thuộc hẳn* về sản phẩm, không bảng nào khác trỏ tới ảnh → sản phẩm (chưa từng bán) bị xóa thật thì ảnh đi theo |
+| 4 | orders – order_items | 1-n | `order_items.order_id` | Bắt buộc | restrict | Về ý nghĩa thì cascade hợp lý (chi tiết thuộc về đơn), nhưng đơn hàng **không bao giờ bị xóa** → restrict làm lưới an toàn nếu ai đó lỡ tay |
+| 5 | product_variants – order_items | 1-n | `order_items.variant_id` | Bắt buộc | restrict | **Chính ràng buộc này thực thi US-10 ở tầng cơ sở dữ liệu**: biến thể đã từng bán thì không xóa được, dù code có lỗi |
+| 6 | orders – order_status_history | 1-n | `order_status_history.order_id` | Bắt buộc | restrict | Lịch sử là bằng chứng, không được mất |
+| 7 | admins – order_status_history | 1-n | `order_status_history.changed_by` | **Được trống** | restrict | Trống = hệ thống tự đổi (webhook nhận tiền, tự hủy sau 24h). Restrict chứ không `set null`: set null sẽ xóa mất dấu vết *ai đã làm* → admin nghỉ việc thì **tắt** (`is_active = false`), không xóa |
+| 8 | orders – payment_transactions | 1-n | `payment_transactions.order_id` | **Được trống** | restrict | Trống = tiền đến nhưng nội dung chuyển khoản không khớp đơn nào; vẫn phải lưu để admin xử lý |
+| 9 | product_variants – inventory_movements | 1-n | `inventory_movements.variant_id` | Bắt buộc | restrict | Mọi biến động kho đều thuộc về một biến thể cụ thể |
+| 10 | orders – inventory_movements | 1-n | `inventory_movements.order_id` | **Được trống** | restrict | Có đơn: trừ kho khi bán, cộng lại khi hủy/hoàn. Trống: nhập hàng, điều chỉnh kiểm kê |
+| 11 | admins – inventory_movements | 1-n | `inventory_movements.admin_id` | **Được trống** | restrict | Có admin: nhập hàng, điều chỉnh. Trống: hệ thống tự trừ khi khách đặt hàng |
+| 12 | orders – product_variants | **n-n** | *Không nối thẳng* — đi qua `order_items` (`order_id` + `variant_id`) | — | — | Một đơn có nhiều biến thể, một biến thể nằm trong nhiều đơn. `order_items` là **bảng trung gian có dữ liệu riêng** (số lượng, giá lúc mua) |
+| 13 | admins – payment_transactions | 1-n | `payment_transactions.admin_id` | **Được trống** | restrict | *(Phát hiện thêm khi điền bảng)* Hoàn tiền do admin ghi nhận thủ công → cần biết ai ghi. Tiền vào qua webhook thì trống |
+
+`settings` không có quan hệ với bảng nào.
+
+### Rút ra từ bảng trên
+- **Gần như mọi quan hệ đều `restrict`**: dữ liệu của shop là lịch sử mua bán và sổ sách — không xóa, chỉ ẩn (`is_hidden`) hoặc tắt (`is_active`). `restrict` biến quy tắc đó thành ràng buộc mà **cơ sở dữ liệu tự cưỡng chế**, kể cả khi code có bug.
+- **`cascade` chỉ dùng khi bảng con thuộc hẳn về bảng cha** và không ai khác tham chiếu tới (ảnh sản phẩm).
+- **Khóa ngoại được trống** ⇔ "việc này có thể do hệ thống tự làm" hoặc "dữ liệu có thể không gắn với gì" (tiền không khớp đơn).
+- Quan hệ n-n luôn cần bảng trung gian; bảng trung gian thường **có dữ liệu riêng** chứ không chỉ 2 khóa ngoại.
 
 ## Cố ý **không** tạo bảng
 
